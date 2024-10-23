@@ -1,4 +1,4 @@
-# 📄 GitHub CI/CD Template
+# 📄 SMTP Relay Docker
 
 ![CI/CD](https://img.shields.io/badge/CI/CD-Pipeline-blue)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
