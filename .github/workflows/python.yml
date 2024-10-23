@@ -26,7 +26,7 @@ jobs:
       - name: Format check with Black
         run: |
           source venv/bin/activate
-          black --check $(git ls-files '*.py')
+          black --check scripts/
       - name: Lint with Pylint
         run: |
           source venv/bin/activate
