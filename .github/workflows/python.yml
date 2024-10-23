@@ -30,4 +30,5 @@ jobs:
       - name: Lint with Pylint
         run: |
           source venv/bin/activate
+          pylint scripts/
           pylint $(git ls-files '*.py')
