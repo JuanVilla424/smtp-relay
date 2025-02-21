@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Variables dinámicas de entorno para Postfix
 POSTFIX_MYHOSTNAME=${POSTFIX_MYHOSTNAME:-localhost}
 POSTFIX_MYNETWORKS=${POSTFIX_MYNETWORKS:-"127.0.0.0/8"}
 POSTFIX_RELAYHOST=${POSTFIX_RELAYHOST:-"[smtp.externalhost.com]:587"}
 POSTFIX_SMTP_USERNAME=${POSTFIX_SMTP_USERNAME:-"user"}
 POSTFIX_SMTP_PASSWORD=${POSTFIX_SMTP_PASSWORD:-"password"}
-POSTFIX_USE_STARTTLS=${POSTFIX_USE_STARTTLS:-"may"}  # yes/no
-POSTFIX_EXTERNAL_PORT=${POSTFIX_EXTERNAL_PORT:-587}  # Puerto por defecto
+POSTFIX_USE_STARTTLS=${POSTFIX_USE_STARTTLS:-"may"}
+POSTFIX_EXTERNAL_PORT=${POSTFIX_EXTERNAL_PORT:-587}
 
-# Configuración principal de Postfix
 postconf -e "myhostname = $POSTFIX_MYHOSTNAME"
 postconf -e "mynetworks = $POSTFIX_MYNETWORKS"
 postconf -e "relayhost = [$POSTFIX_RELAYHOST]:$POSTFIX_EXTERNAL_PORT"
@@ -22,5 +20,4 @@ postconf -e "smtp_sasl_security_options = noanonymous"
 echo -e "[$POSTFIX_RELAYHOST]:$POSTFIX_EXTERNAL_PORT $POSTFIX_SMTP_USERNAME:$POSTFIX_SMTP_PASSWORD" > /etc/postfix/sasl_passwd
 postmap /etc/postfix/sasl_passwd
 
-# Ejecuta Postfix
 exec "$@"

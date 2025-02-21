@@ -9,8 +9,8 @@ We provide security updates for the following versions of our project:
 | Version  | Status      | Secure |
 | -------- | ----------- | ------ |
 | 2023.x.x | End-of-life | No     |
-| 2024.7.x | End-of-life | Yes    |
-| 2024.8.x | Supported   | Yes    |
+| 2025.7.x | End-of-life | Yes    |
+| 2025.8.x | Supported   | Yes    |
 
 ## 🛡️ Security Practices
 
@@ -48,4 +48,4 @@ Thank you for helping us keep this project secure!
 
 ## 📜 License
 
-2024 - This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). You are free to use, modify, and distribute this software under the terms of the GPL-3.0 license. For more details, please refer to the [LICENSE](LICENSE) file included in this repository.
+2025 - This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). You are free to use, modify, and distribute this software under the terms of the GPL-3.0 license. For more details, please refer to the [LICENSE](LICENSE) file included in this repository.
