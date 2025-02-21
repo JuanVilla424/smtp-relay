@@ -13,4 +13,4 @@ COPY main.cf /etc/postfix/main.cf
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["sh", "-c", "service rsyslog start && postfix start-fg && /entrypoint.sh && rsyslogd && postfix start-fg"]
+CMD ["sh", "-c", "rsyslogd -n && postfix start-fg && /entrypoint.sh && rsyslogd && postfix start-fg"]
