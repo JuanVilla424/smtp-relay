@@ -17,7 +17,7 @@ bump2version>=1.0.0
 toml>=0.10.1
 
 # Black for Code Formatting
-black>=24.3.0
+black>=25.1.0
 
 # Pytest for Unit/Integration Testing
 pytest>=7.3.1
