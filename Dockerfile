@@ -1,5 +1,7 @@
 FROM alpine:3.16
 
+COPY entrypoint.sh /entrypoint.sh
+
 # hadolint ignore=DL3018
 RUN apk --no-cache add postfix rsyslog bash cyrus-sasl curl && \
     chmod +x /entrypoint.sh && \
@@ -7,7 +9,6 @@ RUN apk --no-cache add postfix rsyslog bash cyrus-sasl curl && \
     mkdir -p /var/log && touch /var/log/mail.log && \
     newaliases
 
-COPY entrypoint.sh /entrypoint.sh
 COPY main.cf /etc/postfix/main.cf
 
 ENTRYPOINT ["/entrypoint.sh"]
