@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "smtp-relay"
-version = "1.0.13"
+version = "1.0.14"
 description = "SMTP Relay Docker"
 authors = ["B <g46327wsj1.marbling129@passinbox.com>"]
 license = "Aáche 2.0"
