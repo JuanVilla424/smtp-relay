@@ -1,0 +1,26 @@
+---
+networks:
+  relay:
+    driver: bridge
+
+services:
+  smtp-relay:
+    restart: unless-stopped
+    build: .
+    networks:
+      - relay
+    ports:
+      - "${SMTP_RELAY_PORT}:25"
+    environment:
+      POSTFIX_MYHOSTNAME: ${SMTP_RELAY_HOST}
+      POSTFIX_MYNETWORKS: ${SMTP_RELAY_NETWORKS}
+      POSTFIX_RELAYHOST: ${SMTP_RELAY_EXTERNAL_SMTP_HOST}
+      POSTFIX_SMTP_USERNAME: ${SMTP_RELAY_EXTERNAL_SMTP_USERNAME}
+      POSTFIX_SMTP_PASSWORD: ${SMTP_RELAY_EXTERNAL_SMTP_PASSWORD}
+      POSTFIX_USE_STARTTLS: ${SMTP_RELAY_EXTERNAL_SMTP_STARTTLS}
+      POSTFIX_EXTERNAL_PORT: ${SMTP_RELAY_EXTERNAL_SMTP_PORT}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -I -m 2 telnet://smtp-relay:25 | grep '220 localhost ESMTP'"]
+      interval: 10s
+      timeout: 10s
+      retries: 120

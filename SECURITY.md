@@ -6,11 +6,9 @@ Security Policy for **SMTP Relay Docker** repository includes all required compl
 
 We provide security updates for the following versions of our project:
 
-| Version  | Status      | Secure |
-| -------- | ----------- | ------ |
-| 2023.x.x | End-of-life | No     |
-| 2025.7.x | End-of-life | Yes    |
-| 2025.8.x | Supported   | Yes    |
+| Version | Status    | Secure |
+| ------- | --------- | ------ |
+| >1.0.5  | Supported | Yes    |
 
 ## 🛡️ Security Practices
 
