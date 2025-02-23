@@ -1,16 +1,14 @@
-FROM alpine:3.16
+# hadolint ignore=DL3007
+FROM alpine:latest
 
 COPY entrypoint.sh /entrypoint.sh
+COPY main.cf /etc/postfix/main.cf
 
 # hadolint ignore=DL3018
-RUN apk --no-cache add postfix rsyslog bash cyrus-sasl curl && \
+RUN apk --no-cache add postfix bash cyrus-sasl curl && \
     chmod +x /entrypoint.sh && \
-    echo "*.* /var/log/mail.log" >> /etc/rsyslog.conf && \
-    mkdir -p /var/log && touch /var/log/mail.log && \
     newaliases
-
-COPY main.cf /etc/postfix/main.cf
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["sh", "-c", "rsyslogd -n && postfix start-fg && /entrypoint.sh && rsyslogd && postfix start-fg"]
+CMD ["postfix", "start-fg"]
