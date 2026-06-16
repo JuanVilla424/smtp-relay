@@ -45,7 +45,6 @@ Before you begin, ensure you have the following installed:
    ```
 
 2. **Set Up Environment Variables**
-
    - Rename the `.env.example` file to `.env`:
      ```bash
      cp .env.example .env
